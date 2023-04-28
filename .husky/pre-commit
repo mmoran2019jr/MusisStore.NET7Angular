@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Esta configuración hace que el formateo se aplique a todos los archivos de tu proyecto
+# npm run pre-commit 
+
+#Con la ayuda de pretty-quick aplicamos el formateo y linting unicamente a los archivos modificados
+npx pretty-quick --pattern "src/**/**.ts" --pattern "src/**/**.json" --pattern "src/**/**.html"  --pattern "src/**/**.scss"  --staged --verbose && ng lint --fix
